@@ -1,0 +1,14 @@
+.footer{
+    
+}
+.footer-content{
+    height: 0;
+    overflow: hidden;
+    transition: height .5s;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.open + .footer-content {
+    height: 190px;
+}
