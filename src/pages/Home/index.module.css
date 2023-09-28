@@ -4,3 +4,18 @@
     background: url("../../assets/home/solution-bg.png") no-repeat;
     background-size: 100% auto;
 }
+.classicCase{
+    width: 100%;
+    min-height: 555px;
+    background: url("../../assets/home/classic-case-bg.png") no-repeat;
+    background-size: 100% auto;
+}
+
+.client{
+    width: 100%;
+    min-height:438px;
+    background: url("../../assets/home/client.png") no-repeat;
+    background-size: 100% auto;
+}
+
+
