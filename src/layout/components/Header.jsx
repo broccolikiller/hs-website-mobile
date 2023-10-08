@@ -1,32 +1,24 @@
 import {Popover, Transition} from '@headlessui/react'
-import {ChevronDownIcon} from '@heroicons/react/20/solid'
 import {Fragment} from 'react'
 import logo from '../../assets/header/logo.png'
-
-const solutions = [
-    {
-        name: 'Insights',
-        description: 'Measure actions your users take',
-        href: '##',
-        icon: IconOne,
-    },
-    {
-        name: 'Automations',
-        description: 'Create your own targeted content',
-        href: '##',
-        icon: IconTwo,
-    },
-    {
-        name: 'Reports',
-        description: 'Keep track of your growth',
-        href: '##',
-        icon: IconThree,
-    },
-]
+import {Collapse} from "antd-mobile";
+import '../../index.css'
+import {useNavigate} from "react-router-dom";
 
 export const Header = () => {
+    const navigate = useNavigate()
+    const handlePanel = (route) => {
+        console.log(route)
+        if (Object.keys(route.query).length > 0) {
+            navigate(`${route.path}?id=${route.query.id}`)
+        } else {
+            navigate(route.path)
+        }
+
+    }
     return (
-        <div className="h-10 fixed z-10 w-full bg-gradient-to-r from-[#004FC8] to-[#00B1B9] flex justify-between items-center px-4">
+        <div
+            className="h-10 fixed z-10 w-full bg-gradient-to-r from-[#004FC8] to-[#00B1B9] flex justify-between items-center px-4">
             <div className="h-[40%]">
                 <img src={logo} className="h-full" alt=""/>
             </div>
@@ -51,47 +43,76 @@ export const Header = () => {
                                 leaveTo="opacity-0 translate-y-1"
                             >
                                 <Popover.Panel
-                                    className="absolute -right-4 top-5 mt-3 w-screen transform sm:px-0 lg:max-w-3xl">
-                                    <div
-                                        className="overflow-hidden  shadow-lg ring-1 ring-black ring-opacity-5">
-                                        <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                                            {solutions.map((item) => (
-                                                <a
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                                                >
-                                                    <div
-                                                        className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
-                                                        <item.icon aria-hidden="true"/>
-                                                    </div>
-                                                    <div className="ml-4">
-                                                        <p className="text-sm font-medium text-gray-900">
-                                                            {item.name}
-                                                        </p>
-                                                        <p className="text-sm text-gray-500">
-                                                            {item.description}
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            ))}
-                                        </div>
-                                        <div className="bg-gray-50 p-4">
-                                            <a
-                                                href="#"
-                                                className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                                            >
-                      <span className="flex items-center">
-                        <span className="text-sm font-medium text-gray-900">
-                          Documentation
-                        </span>
-                      </span>
-                                                <span className="block text-sm text-gray-500">
-                        Start integrating products and tools
-                      </span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    className="absolute -right-4 top-5 mt-3 w-screen transform sm:px-0 lg:max-w-3xl bg-[#667894] text-white">
+                                    <Collapse accordion>
+                                        <Collapse.Panel
+                                            onClick={() => handlePanel({path: '/home', query: {}})}
+                                            className={'no-fold'}
+                                            arrow={false}
+                                            key='1'
+                                            title='首页'
+                                        >
+                                        </Collapse.Panel>
+                                        <Collapse.Panel
+                                            onClick={() => handlePanel({path: '/about-us', query: {}})}
+                                            className={'no-fold'}
+                                            arrow={false}
+                                            key='2'
+                                            title='关于我们'
+                                        >
+                                        </Collapse.Panel>
+                                        <Collapse.Panel key='3' title='解决方案'>
+                                            <div
+                                                onClick={() => handlePanel({path: '/solution', query: {id: 1}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                智慧互动校园整体解决方案
+                                            </div>
+                                            <div
+                                                onClick={() => handlePanel({path: '/solution', query: {id: 2}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                智慧互动图书馆整体解决方案
+                                            </div>
+                                            <div
+                                                className={'py-4 text-slate-400 item-border'}>
+                                                智慧互动场馆整体解决方案
+                                            </div>
+                                            <div className={'py-4 text-slate-400 '}>其他方案</div>
+                                        </Collapse.Panel>
+                                        <Collapse.Panel key='4' title='产品中心'>
+                                            <div
+                                                onClick={() => handlePanel({path: '/production', query: {id: 1}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                交互&展示产品
+                                            </div>
+                                            <div
+                                                onClick={() => handlePanel({path: '/production', query: {id: 2}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                AI 智能产品
+                                            </div>
+                                            <div
+                                                onClick={() => handlePanel({path: '/production', query: {id: 3}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                物联网产品
+                                            </div>
+                                            <div
+                                                onClick={() => handlePanel({path: '/production', query: {id: 4}})}
+                                                className={'py-4 text-slate-100'}>
+                                                软件平台产品
+                                            </div>
+                                        </Collapse.Panel>
+                                        <Collapse.Panel className={'finally-collapse'} key='5' title='经典案例'>
+                                            <div
+                                                onClick={() => handlePanel({path: '/classic-case', query: {id: 1}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                文化行业
+                                            </div>
+                                            <div
+                                                onClick={() => handlePanel({path: '/classic-case', query: {id: 2}})}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                教育行业
+                                            </div>
+                                        </Collapse.Panel>
+                                    </Collapse>
                                 </Popover.Panel>
                             </Transition>
                         </>
@@ -102,81 +123,3 @@ export const Header = () => {
     )
 }
 
-function IconOne() {
-    return (
-        <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect width="48" height="48" rx="8" fill="#FFEDD5"/>
-            <path
-                d="M24 11L35.2583 17.5V30.5L24 37L12.7417 30.5V17.5L24 11Z"
-                stroke="#FB923C"
-                strokeWidth="2"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M16.7417 19.8094V28.1906L24 32.3812L31.2584 28.1906V19.8094L24 15.6188L16.7417 19.8094Z"
-                stroke="#FDBA74"
-                strokeWidth="2"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20.7417 22.1196V25.882L24 27.7632L27.2584 25.882V22.1196L24 20.2384L20.7417 22.1196Z"
-                stroke="#FDBA74"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
-
-function IconTwo() {
-    return (
-        <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect width="48" height="48" rx="8" fill="#FFEDD5"/>
-            <path
-                d="M28.0413 20L23.9998 13L19.9585 20M32.0828 27.0001L36.1242 34H28.0415M19.9585 34H11.8755L15.9171 27"
-                stroke="#FB923C"
-                strokeWidth="2"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M18.804 30H29.1963L24.0001 21L18.804 30Z"
-                stroke="#FDBA74"
-                strokeWidth="2"
-            />
-        </svg>
-    )
-}
-
-function IconThree() {
-    return (
-        <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <rect width="48" height="48" rx="8" fill="#FFEDD5"/>
-            <rect x="13" y="32" width="2" height="4" fill="#FDBA74"/>
-            <rect x="17" y="28" width="2" height="8" fill="#FDBA74"/>
-            <rect x="21" y="24" width="2" height="12" fill="#FDBA74"/>
-            <rect x="25" y="20" width="2" height="16" fill="#FDBA74"/>
-            <rect x="29" y="16" width="2" height="20" fill="#FB923C"/>
-            <rect x="33" y="12" width="2" height="24" fill="#FB923C"/>
-        </svg>
-    )
-}

@@ -76,7 +76,7 @@ export const Home = () => {
         navigate(`/production?id=${item}`)
     }
     const skipClassicCase = (id) => {
-        if(id===2) return
+        if (id === 2) return
         navigate(`/classic-case-introduce?id=${id}`)
     }
     return (
@@ -88,23 +88,23 @@ export const Home = () => {
                 pagination={{clickable: true}}
             >
                 <SwiperSlide>
-                    <div>
+                    <div className={'h-[474px] overflow-hidden'}>
                         <img className={'w-full h-auto'} src={img1} alt=""/>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div>
+                    <div className={'h-[474px] overflow-hidden'}>
                         <img className={'w-full h-auto'} src={img2} alt=""/>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div>
+                    <div className={'h-[474px] overflow-hidden'}>
                         <img className={'w-full h-auto'} src={img3} alt=""/>
                     </div>
                 </SwiperSlide>
             </Swiper>
             {/*解决方案*/}
-            <div className={`${style.solution} px-6 overflow-hidden`}>
+            <div className={`${style.solution} px-6 overflow-hidden text-base`}>
                 <div className={'mt-16 text-gray-200'}>
                     <div className={'flex justify-around'}>
                         {
@@ -122,8 +122,7 @@ export const Home = () => {
 
                     </div>
                 </div>
-                {/*onClick={}*/}
-                <div className={'mt-2'}>
+                <div className={'mt-3'}>
                     {
                         solutionItems.map((item, index) => {
                             return (
@@ -137,17 +136,33 @@ export const Home = () => {
                 </div>
             </div>
             {/*产品中心*/}
-            <div className={'flex justify-center'}>
-                <img src={productionCenterTitle} alt=""/>
+            <div className={'flex justify-center my-2'}>
+                <img className={'w-[27%]'} src={productionCenterTitle} alt=""/>
             </div>
             <div className={'px-4'}>
-                <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem1} alt=""/>
-                <img onClick={() => skipProductionCenter(2)} className={''} src={productionCenterItem2} alt=""/>
-                <img onClick={() => skipProductionCenter(3)} className={''} src={productionCenterItem3} alt=""/>
-                <img onClick={() => skipProductionCenter(4)} className={''} src={productionCenterItem4} alt=""/>
+                <div className={'mb-2 flex justify-center'}>
+                    <div className={'overflow-hidden rounded-md'}>
+                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem1} alt=""/>
+                    </div>
+                </div>
+                <div className={'mb-2 flex justify-center'}>
+                    <div className={'overflow-hidden rounded-md'}>
+                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem2} alt=""/>
+                    </div>
+                </div>
+                <div className={'mb-2 flex justify-center'}>
+                    <div className={'overflow-hidden rounded-md'}>
+                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem3} alt=""/>
+                    </div>
+                </div>
+                <div className={'mb-8 flex justify-center'}>
+                    <div className={'overflow-hidden rounded-md'}>
+                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem4} alt=""/>
+                    </div>
+                </div>
             </div>
             {/*经典案例*/}
-            <div className={`${style.classicCase} px-6 overflow-hidden`}>
+            <div className={`${style.classicCase} px-6 overflow-hidden text-base`}>
                 <div className={'mt-16 text-gray-200'}>
                     <div className={'flex justify-evenly'}>
                         {
@@ -163,20 +178,23 @@ export const Home = () => {
                     </div>
                 </div>
                 {
-                    classicCaseTabIndex === 0 ? <div>
+                    classicCaseTabIndex === 0 ?
+                        <div className={'mt-3'}>
                             <div onClick={() => skipClassicCase(1)}>
                                 <img src={classicCaseItem1} alt=""/>
                             </div>
                             <div className={'flex'}>
                                 {/*left*/}
                                 <div className={''}>
-                                    <div onClick={() => skipClassicCase(2)} className={''}>
+                                    <div onClick={() => skipClassicCase(2)} className={'mt-3'}>
                                         <img src={classicCaseItem2} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(3)} className={''}>
+                                    <div onClick={() => skipClassicCase(3)} className={'mt-3'}>
                                         <img src={classicCaseItem3} alt=""/>
                                     </div>
                                 </div>
+                                {/*middle 空元素占位*/}
+                                <div className={'h-full w-8 bg-amber-600'}></div>
                                 {/*right*/}
                                 <div className={''}>
                                     <div onClick={() => skipClassicCase(4)} className={''}>
@@ -193,7 +211,7 @@ export const Home = () => {
                             </div>
                         </div>
                         :
-                        <div>
+                        <div className={'mt-3'}>
                             <div className={'flex'}>
                                 <div onClick={() => skipClassicCase(7)}>
                                     <img src={classicCaseItem7} alt=""/>
@@ -218,6 +236,6 @@ export const Home = () => {
 
             </div>
         </>
-    )
+    );
 
 }

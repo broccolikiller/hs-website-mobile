@@ -10,7 +10,7 @@ function App() {
     return (
         <>
             <Header/>
-            <div className="pt-10">
+            <div className="pt-10 text-base">
                 {element}
             </div>
             <Footer/>

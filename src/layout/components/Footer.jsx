@@ -1,69 +1,91 @@
 import '../../index.css'
+import {Collapse} from "antd-mobile";
+import {useNavigate} from "react-router-dom";
 
 export const Footer = () => {
-    const handleClick = (e) => {
-        console.log(e)
-        const elementList = Array.from(document.querySelectorAll('.footer-title'))
-        elementList.forEach(item=>{
-            if(e.target.innerHTML===item.innerHTML){
-                console.log(item.innerHTML)
-                item.classList.add('open')
-            }else {
-                item.classList.remove('open')
-            }
-        })
-        //if(e.target.className.indexOf('open')>-1){
-        //    e.target.classList.remove('open')
-        //}else {
-        //    e.target.classList.add('open')
-        //}
-       
+    const navigate = useNavigate()
+    const handlePanel = (route) => {
+        console.log(route)
+        if (Object.keys(route.query).length > 0) {
+            navigate(`${route.path}?id=${route.query.id}`)
+        } else {
+            navigate(route.path)
+        }
+
     }
     return (
         <>
             {/*bg-[#002547]*/}
             <div className={'px-4 bg-[#002547] text-white pb-8'}>
                 <div className={'flex flex-col'}>
-                    <div className={''}>
-                        <div onClick={handleClick} className={'mt-4 footer-title'}>关于我们</div>
-                        <div className="footer-content text-black">
-                            吉他（意大利语：Chitarra），又译为结他或六弦琴。是一种弹拨乐器，通常有六条弦，形状与提琴相似。
-                            吉他在流行音乐、摇滚音乐、蓝调、民歌、佛朗明哥中，常被视为主要乐器。而在古典音乐的领域里，吉他常以独奏或二重奏的型式演出；当然，在室内乐和管弦乐中，吉他亦扮演着相当程度的陪衬角色。
-                            古典吉他与小提琴、钢琴并列为世界著名三大乐器。
-                        </div>
-                        <div className={'bg-white h-0.5 rounded-[1px] mt-4'}></div>
-                    </div>
-                    <div>
-                        <div onClick={handleClick} className={'mt-4 footer-title'}>解决方案</div>
-                        <div className="footer-content text-black">
-                            吉他（意大利语：Chitarra），又译为结他或六弦琴。是一种弹拨乐器，通常有六条弦，形状与提琴相似。
-                            吉他在流行音乐、摇滚音乐、蓝调、民歌、佛朗明哥中，常被视为主要乐器。而在古典音乐的领域里，吉他常以独奏或二重奏的型式演出；当然，在室内乐和管弦乐中，吉他亦扮演着相当程度的陪衬角色。
-                            古典吉他与小提琴、钢琴并列为世界著名三大乐器。
-                        </div>
-                        <div className={'bg-white h-0.5 rounded-[1px] mt-4'}></div>
-                    </div>
-                    <div>
-                        <div onClick={handleClick} className={'mt-4 footer-title'}>产品中心</div>
-                        <div className="footer-content text-black">
-                            吉他（意大利语：Chitarra），又译为结他或六弦琴。是一种弹拨乐器，通常有六条弦，形状与提琴相似。
-                            吉他在流行音乐、摇滚音乐、蓝调、民歌、佛朗明哥中，常被视为主要乐器。而在古典音乐的领域里，吉他常以独奏或二重奏的型式演出；当然，在室内乐和管弦乐中，吉他亦扮演着相当程度的陪衬角色。
-                            古典吉他与小提琴、钢琴并列为世界著名三大乐器。
-                        </div>
-                        <div className={'bg-white h-0.5 rounded-[1px] mt-4'}></div>
-                    </div>
-                    <div>
-                        <div onClick={handleClick} className={'mt-4 footer-title'}>经典案例</div>
-                        <div className="footer-content text-black">
-                            吉他（意大利语：Chitarra），又译为结他或六弦琴。是一种弹拨乐器，通常有六条弦，形状与提琴相似。
-                            吉他在流行音乐、摇滚音乐、蓝调、民歌、佛朗明哥中，常被视为主要乐器。而在古典音乐的领域里，吉他常以独奏或二重奏的型式演出；当然，在室内乐和管弦乐中，吉他亦扮演着相当程度的陪衬角色。
-                            古典吉他与小提琴、钢琴并列为世界著名三大乐器。
-                        </div>
-                        <div className={'bg-white h-0.5 rounded-[1px] mt-4'}></div>
-                    </div>
-                    <div  className={'mt-4 footer-title'}>
+                    <Collapse accordion>
+                        <Collapse.Panel
+                            className={'no-fold'}
+                            onClick={() => handlePanel({path: '/about-us', query: {}})}
+                            arrow={false}
+                            key='1'
+                            title='关于我们'
+                        >
+                        </Collapse.Panel>
+                        <Collapse.Panel key='2' title='解决方案'>
+                            <div
+                                onClick={() => handlePanel({path: '/solution', query: {id: 1}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                智慧互动校园整体解决方案
+                            </div>
+                            <div
+                                onClick={() => handlePanel({path: '/solution', query: {id: 2}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                智慧互动图书馆整体解决方案
+                            </div>
+                            <div 
+                                className={'py-4 text-slate-400 item-border'}>
+                                智慧互动场馆整体解决方案
+                            </div>
+                            <div 
+                                className={'py-4 text-slate-400'}>
+                                其他方案
+                            </div>
+                        </Collapse.Panel>
+                        <Collapse.Panel key='3' title='产品中心'>
+                            <div
+                                onClick={() => handlePanel({path: '/production', query: {id: 1}})}    
+                                className={'py-4 text-slate-100 item-border'}>
+                                交互&展示产品
+                            </div>
+                            <div
+                                onClick={() => handlePanel({path: '/production', query: {id: 2}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                AI 智能产品
+                            </div>
+                            <div
+                                onClick={() => handlePanel({path: '/production', query: {id: 3}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                物联网产品
+                            </div>
+                            <div
+                                onClick={() => handlePanel({path: '/production', query: {id: 4}})}
+                                className={'py-4 text-slate-100'}>
+                                软件平台产品
+                            </div>
+                        </Collapse.Panel>
+                        <Collapse.Panel key='4' className={'finally-collapse'} title='经典案例'>
+                            <div
+                                onClick={() => handlePanel({path: '/classic-case', query: {id: 1}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                文化行业
+                            </div>
+                            <div
+                                onClick={() => handlePanel({path: '/classic-case', query: {id: 2}})}
+                                className={'py-4 text-slate-100 item-border'}>
+                                教育行业
+                            </div>
+                        </Collapse.Panel>
+                    </Collapse>
+                    <div className={'mt-4 footer-title text-center'}>
                         Copyright @ 2011-2020 hengshutech.net All Rights Reserve.
                     </div>
-                    <div className={'mt-2'}>
+                    <div className={'mt-2 text-center'}>
                         <span>备案号: 浙ICP备17018287号-1</span>
                         <img style={{verticalAlign: "text-top"}} className={'inline px-1'}
                              src="/src/assets/footer/bottom-police-logo.png" alt=""/>
