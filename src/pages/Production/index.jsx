@@ -16,6 +16,10 @@ export const Production = () => {
         AllProductionList.slice(12, 16)
     ]
     const [params, serParams] = useSearchParams()
+    useEffect(()=>{
+        setActiveKey(params.get('id'))
+        window.scrollTo(0, 0);
+    },[params])
     const [tabBarList, setTabBarList] = useState([
         {
             id: 1,
@@ -35,9 +39,7 @@ export const Production = () => {
         },
     ])
     const [activeKey, setActiveKey] = useState('1')
-    useEffect(()=>{
-        setActiveKey(params.get('id'))
-    },[params])
+ 
 
     return (
         <>

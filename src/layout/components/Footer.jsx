@@ -1,24 +1,25 @@
 import '../../index.css'
 import {Collapse} from "antd-mobile";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 export const Footer = () => {
+    const [activeKey, setActiveKey] = useState(null)
     const navigate = useNavigate()
     const handlePanel = (route) => {
-        console.log(route)
         if (Object.keys(route.query).length > 0) {
             navigate(`${route.path}?id=${route.query.id}`)
         } else {
             navigate(route.path)
         }
-
+        setActiveKey(null)
     }
+    const handleChange = key => setActiveKey(key)
     return (
         <>
-            {/*bg-[#002547]*/}
             <div className={'px-4 bg-[#002547] text-white pb-8'}>
                 <div className={'flex flex-col'}>
-                    <Collapse accordion>
+                    <Collapse onChange={handleChange} activeKey={activeKey} accordion>
                         <Collapse.Panel
                             className={'no-fold'}
                             onClick={() => handlePanel({path: '/about-us', query: {}})}
@@ -38,18 +39,18 @@ export const Footer = () => {
                                 className={'py-4 text-slate-100 item-border'}>
                                 智慧互动图书馆整体解决方案
                             </div>
-                            <div 
+                            <div
                                 className={'py-4 text-slate-400 item-border'}>
                                 智慧互动场馆整体解决方案
                             </div>
-                            <div 
+                            <div
                                 className={'py-4 text-slate-400'}>
                                 其他方案
                             </div>
                         </Collapse.Panel>
                         <Collapse.Panel key='3' title='产品中心'>
                             <div
-                                onClick={() => handlePanel({path: '/production', query: {id: 1}})}    
+                                onClick={() => handlePanel({path: '/production', query: {id: 1}})}
                                 className={'py-4 text-slate-100 item-border'}>
                                 交互&展示产品
                             </div>
@@ -83,7 +84,7 @@ export const Footer = () => {
                         </Collapse.Panel>
                     </Collapse>
                     <div className={'mt-4 footer-title text-center'}>
-                        Copyright @ 2011-2020 hengshutech.net All Rights Reserve.
+                        Copyright @ 2011-2023 hengshutech.net All Rights Reserve.
                     </div>
                     <div className={'mt-2 text-center'}>
                         <span>备案号: 浙ICP备17018287号-1</span>

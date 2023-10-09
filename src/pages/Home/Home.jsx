@@ -162,7 +162,7 @@ export const Home = () => {
                         <img onClick={() => skipProductionCenter(3)} className={''} src={productionCenterItem3} alt=""/>
                     </div>
                 </div>
-                <div className={'mb-8 flex justify-center'}>
+                <div className={'mb-4 flex justify-center'}>
                     <div className={'overflow-hidden rounded-md'}>
                         <img onClick={() => skipProductionCenter(4)} className={''} src={productionCenterItem4} alt=""/>
                     </div>
@@ -243,7 +243,9 @@ export const Home = () => {
                 }
             </div>
             {/*客户名单*/}
-            <div className={`${style.client} mb-4`}></div>
+            <div className={'mb-4 flex justify-center'}>
+                <img src="/src/assets/home/client.png" alt=""/>
+            </div>
         </>
     );
 

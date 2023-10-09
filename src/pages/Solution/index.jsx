@@ -9,6 +9,7 @@ export const Solution = () => {
     const [id, setId] = useState(1)
     useEffect(() => {
         setId(() => Number(searchParams.get('id')))
+        window.scrollTo(0, 0);
     }, [searchParams])
     useEffect(() => {
         window.scrollTo(0, 0);
