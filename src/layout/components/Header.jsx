@@ -8,13 +8,12 @@ import {useNavigate} from "react-router-dom";
 export const Header = () => {
     const navigate = useNavigate()
     const handlePanel = (route) => {
-        console.log(route)
         if (Object.keys(route.query).length > 0) {
             navigate(`${route.path}?id=${route.query.id}`)
         } else {
             navigate(route.path)
         }
-
+        document.querySelector('.btn').click()
     }
     return (
         <div
@@ -26,7 +25,7 @@ export const Header = () => {
                 <Popover className="relative flex items-center">
                     {({open}) => (
                         <>
-                            <Popover.Button className="focus-visible:outline-0 text-white">
+                            <Popover.Button className="focus-visible:outline-0 text-white btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round"

@@ -25,13 +25,16 @@ import classicCaseItem8 from '../../assets/home/classic-case-item8.png'
 import classicCaseItem9 from '../../assets/home/classic-case-item9.png'
 import classicCaseItem10 from '../../assets/home/classic-case-item10.png'
 import style from './index.module.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {useTabIndexStore} from "../../store/index.jsx";
 
 const solutionItems = [solutionItem1, solutionItem2, solutionItem3, solutionItem4]
 export const Home = () => {
-    const [solutionTabIndex, setSolutionTabIndex] = useState(0)
-    const [classicCaseTabIndex, setClassicCaseTabIndex] = useState(0)
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    //const [solutionTabIndex, setSolutionTabIndex] = useState(0)
     const [solutionTitleList, setSolutionTitleList] = useState([
         {
             id: 0,
@@ -62,10 +65,12 @@ export const Home = () => {
     ])
     const navigate = useNavigate()
     const handleSolutionTab = (item) => {
-        setSolutionTabIndex(item.id)
+        changeSolutionTabIndex(item.id)
     }
     const handleClassicCaseTab = (item) => {
-        setClassicCaseTabIndex(item.id)
+        console.log(item)
+        changeHomeClassicCaseTabIndex(item.id)
+        console.log(homeClassicCaseTabIndex)
     }
 
     const skipSolution = (item) => {
@@ -79,6 +84,13 @@ export const Home = () => {
         if (id === 2) return
         navigate(`/classic-case-introduce?id=${id}`)
     }
+
+    const solutionTabIndex = useTabIndexStore(state => state.solutionTabIndex)
+    const homeClassicCaseTabIndex = useTabIndexStore(state => state.homeClassicCaseTabIndex)
+    
+    const changeSolutionTabIndex = useTabIndexStore(state => state.changeSolutionTabIndex)
+    const changeHomeClassicCaseTabIndex = useTabIndexStore(state => state.changeHomeClassicCaseTabIndex)
+
     return (
         <>
             <Swiper
@@ -147,17 +159,17 @@ export const Home = () => {
                 </div>
                 <div className={'mb-2 flex justify-center'}>
                     <div className={'overflow-hidden rounded-md'}>
-                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem2} alt=""/>
+                        <img onClick={() => skipProductionCenter(2)} className={''} src={productionCenterItem2} alt=""/>
                     </div>
                 </div>
                 <div className={'mb-2 flex justify-center'}>
                     <div className={'overflow-hidden rounded-md'}>
-                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem3} alt=""/>
+                        <img onClick={() => skipProductionCenter(3)} className={''} src={productionCenterItem3} alt=""/>
                     </div>
                 </div>
                 <div className={'mb-8 flex justify-center'}>
                     <div className={'overflow-hidden rounded-md'}>
-                        <img onClick={() => skipProductionCenter(1)} className={''} src={productionCenterItem4} alt=""/>
+                        <img onClick={() => skipProductionCenter(4)} className={''} src={productionCenterItem4} alt=""/>
                     </div>
                 </div>
             </div>
@@ -169,38 +181,38 @@ export const Home = () => {
                             classicCaseitleList.map(item => (
                                 <div key={item.id} onClick={() => handleClassicCaseTab(item)}>
                                     <div
-                                        className={`${item.id === classicCaseTabIndex ? 'text-white' : ''}`}>{item.name}</div>
+                                        className={`${item.id === homeClassicCaseTabIndex ? 'text-white' : ''}`}>{item.name}</div>
                                     <div
-                                        className={`h-[2px] ${item.id === classicCaseTabIndex ? 'bg-white' : 'bg-transparent'} rounded-[1px] mt-1`}></div>
+                                        className={`h-[2px] ${item.id === homeClassicCaseTabIndex ? 'bg-white' : 'bg-transparent'} rounded-[1px] mt-1`}></div>
                                 </div>
                             ))
                         }
                     </div>
                 </div>
                 {
-                    classicCaseTabIndex === 0 ?
+                    homeClassicCaseTabIndex === 0 ?
                         <div className={'mt-3'}>
-                            <div onClick={() => skipClassicCase(1)}>
+                            <div className={'flex justify-center'} onClick={() => skipClassicCase(1)}>
                                 <img src={classicCaseItem1} alt=""/>
                             </div>
-                            <div className={'flex'}>
+                            <div className={'flex mt-1.5'}>
                                 {/*left*/}
-                                <div className={''}>
-                                    <div onClick={() => skipClassicCase(2)} className={'mt-3'}>
+                                <div className={'flex-1'}>
+                                    <div onClick={() => skipClassicCase(2)} className={'mb-1.5'}>
                                         <img src={classicCaseItem2} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(3)} className={'mt-3'}>
+                                    <div onClick={() => skipClassicCase(3)} className={''}>
                                         <img src={classicCaseItem3} alt=""/>
                                     </div>
                                 </div>
                                 {/*middle 空元素占位*/}
-                                <div className={'h-full w-8 bg-amber-600'}></div>
+                                <div className={'h-full w-1.5 bg-amber-600'}></div>
                                 {/*right*/}
-                                <div className={''}>
-                                    <div onClick={() => skipClassicCase(4)} className={''}>
+                                <div className={'flex-1'}>
+                                    <div onClick={() => skipClassicCase(4)} className={'mb-1.5'}>
                                         <img src={classicCaseItem4} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(5)} className={''}>
+                                    <div onClick={() => skipClassicCase(5)} className={'mb-1.5'}>
                                         <img src={classicCaseItem5} alt=""/>
                                     </div>
                                     <div onClick={() => skipClassicCase(6)} className={''}>
@@ -213,18 +225,22 @@ export const Home = () => {
                         :
                         <div className={'mt-3'}>
                             <div className={'flex'}>
-                                <div onClick={() => skipClassicCase(7)}>
+                                <div className={'flex-1'} onClick={() => skipClassicCase(7)}>
                                     <img src={classicCaseItem7} alt=""/>
                                 </div>
-                                <div onClick={() => skipClassicCase(8)}>
-                                    <img src={classicCaseItem8} alt=""/>
+                                {/*空元素占位*/}
+                                <div className={'h-full w-1.5 bg-amber-600'}></div>
+                                <div className={'flex-1'} onClick={() => skipClassicCase(8)}>
+                                    <img className={'h-full'} src={classicCaseItem8} alt=""/>
                                 </div>
                             </div>
-                            <div className={'flex'}>
-                                <div onClick={() => skipClassicCase(9)}>
+                            <div className={'flex mt-1.5'}>
+                                <div className={'flex-1'} onClick={() => skipClassicCase(9)}>
                                     <img src={classicCaseItem9} alt=""/>
                                 </div>
-                                <div onClick={() => skipClassicCase(10)}>
+                                {/*空元素占位*/}
+                                <div className={'h-full w-1.5 bg-amber-600'}></div>
+                                <div className={'flex-1'} onClick={() => skipClassicCase(10)}>
                                     <img src={classicCaseItem10} alt=""/>
                                 </div>
                             </div>

@@ -6,6 +6,9 @@ import {Card} from "./Card.jsx";
 import {useSearchParams} from "react-router-dom";
 
 export const Production = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const tabList = [
         AllProductionList.slice(0, 5),
         AllProductionList.slice(5, 9),

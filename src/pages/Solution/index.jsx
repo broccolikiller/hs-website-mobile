@@ -10,6 +10,9 @@ export const Solution = () => {
     useEffect(() => {
         setId(() => Number(searchParams.get('id')))
     }, [searchParams])
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className={'px-4 text-gray-700'}>
