@@ -34,7 +34,6 @@ export const Home = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    //const [solutionTabIndex, setSolutionTabIndex] = useState(0)
     const [solutionTitleList, setSolutionTitleList] = useState([
         {
             id: 0,
@@ -53,7 +52,7 @@ export const Home = () => {
             name: '其他行业'
         },
     ])
-    const [classicCaseitleList, setclassicCaseTitleList] = useState([
+    const [classicCaseTitleList, setClassicCaseTitleList] = useState([
         {
             id: 0,
             name: '文化行业'
@@ -68,9 +67,7 @@ export const Home = () => {
         changeSolutionTabIndex(item.id)
     }
     const handleClassicCaseTab = (item) => {
-        console.log(item)
         changeHomeClassicCaseTabIndex(item.id)
-        console.log(homeClassicCaseTabIndex)
     }
 
     const skipSolution = (item) => {
@@ -84,10 +81,8 @@ export const Home = () => {
         if (id === 2) return
         navigate(`/classic-case-introduce?id=${id}`)
     }
-
     const solutionTabIndex = useTabIndexStore(state => state.solutionTabIndex)
     const homeClassicCaseTabIndex = useTabIndexStore(state => state.homeClassicCaseTabIndex)
-    
     const changeSolutionTabIndex = useTabIndexStore(state => state.changeSolutionTabIndex)
     const changeHomeClassicCaseTabIndex = useTabIndexStore(state => state.changeHomeClassicCaseTabIndex)
 
@@ -178,7 +173,7 @@ export const Home = () => {
                 <div className={'mt-16 text-gray-200'}>
                     <div className={'flex justify-evenly'}>
                         {
-                            classicCaseitleList.map(item => (
+                            classicCaseTitleList.map(item => (
                                 <div key={item.id} onClick={() => handleClassicCaseTab(item)}>
                                     <div
                                         className={`${item.id === homeClassicCaseTabIndex ? 'text-white' : ''}`}>{item.name}</div>
@@ -198,10 +193,10 @@ export const Home = () => {
                             <div className={'flex mt-1.5'}>
                                 {/*left*/}
                                 <div className={'flex-1'}>
-                                    <div onClick={() => skipClassicCase(2)} className={'mb-1.5'}>
+                                    <div onClick={() => skipClassicCase(2)} className={'mb-1.5  h-[182px] overflow-hidden'}>
                                         <img src={classicCaseItem2} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(3)} className={''}>
+                                    <div onClick={() => skipClassicCase(3)} className={'h-[115px] overflow-hidden'}>
                                         <img src={classicCaseItem3} alt=""/>
                                     </div>
                                 </div>
@@ -209,13 +204,13 @@ export const Home = () => {
                                 <div className={'h-full w-1.5 bg-amber-600'}></div>
                                 {/*right*/}
                                 <div className={'flex-1'}>
-                                    <div onClick={() => skipClassicCase(4)} className={'mb-1.5'}>
+                                    <div onClick={() => skipClassicCase(4)} className={'mb-1.5 h-[88px] overflow-hidden'}>
                                         <img src={classicCaseItem4} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(5)} className={'mb-1.5'}>
+                                    <div onClick={() => skipClassicCase(5)} className={'mb-1.5 h-[88px] overflow-hidden'}>
                                         <img src={classicCaseItem5} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(6)} className={''}>
+                                    <div onClick={() => skipClassicCase(6)} className={'h-[115px] overflow-hidden'}>
                                         <img src={classicCaseItem6} alt=""/>
                                     </div>
                                 </div>
@@ -248,9 +243,7 @@ export const Home = () => {
                 }
             </div>
             {/*客户名单*/}
-            <div className={`${style.client} mb-4`}>
-
-            </div>
+            <div className={`${style.client} mb-4`}></div>
         </>
     );
 

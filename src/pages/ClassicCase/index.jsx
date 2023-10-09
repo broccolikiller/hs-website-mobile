@@ -10,7 +10,7 @@ export const ClassicCase = () => {
     }, []);
     const [params, setParams] = useSearchParams()
     const navigate = useNavigate()
-    const [activeKey, setActiveKey] = useState('1')
+    //const [activeKey, setActiveKey] = useState('1')
     useEffect(() => {
         //setActiveKey(params.get('id') || '1')
         changeClassicCaseTabIndex(params.get('id') || '1')
