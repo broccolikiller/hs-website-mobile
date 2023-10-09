@@ -88,7 +88,7 @@ export const ClassicCaseDetail = () => {
                 <div className={'px-4 text-gray-700 pb-4'}>
                     <div className={'text-xl font-bold text-center py-6'}>杭州市图书馆</div>
                     <div className={'text-base leading-loose indent-8'}>
-                        杭州市图书馆分别在2016、17、18年连续三年采购我司互动智能视窗系统、灵动创客空间、多媒体大屏互动系统。其中互动智能化视窗运行近百台，不仅用于市民中心的主馆，还分发到城区等各分馆，受主、分馆两级管理，统一部署杭图数字资源。灵动创客空间系统的部署，使得杭图实现了泛在研讨空间的功能。多媒体大屏互动系统实现了互动时间轴、互动人物墙等功能，作为杭图50周年馆庆的数字化展示窗。
+                        杭州市图书馆分别在2016、17、18年连续三年采购我司互动智能视窗系统、灵动创客空间、多媒体大屏互动系统。其中互动智能视窗运行近百台，不仅用于市民中心的主馆，还分发到城区等各分馆，受主、分馆两级管理，统一部署杭图数字资源。灵动创客空间系统的部署，使得杭图实现了泛在研讨空间的功能。多媒体大屏互动系统实现了互动时间轴、互动人物墙等功能，作为杭图50周年馆庆的数字化展示窗。
                     </div>
                     <div className={'flex justify-center mt-3'}>
                         <img src="/src/assets/classicCase/classicCaseDetail/classic-case-detail6.png" alt=""/>
@@ -102,7 +102,7 @@ export const ClassicCaseDetail = () => {
             <>
                 <div className={'px-4 text-gray-700 pb-4'}>
                     <div className={'text-xl font-bold text-center py-6'}>浙江水利水电学院南浔新校区</div>
-                    <div className={'text-base leading-loose indent-8'}>南浔校区总占地面积约1271亩（其中建筑用地面积1000亩，水域面积271亩），总建筑面积约43.3万平方米，地下建筑面积2.5万平方米，总投资25亿元；全校采用横竖科技提供的各类交互展示设备700余套、交互应用仅20款，为新校区打造了一个“服务随处、智慧随行、场景随需、信息随时”的智慧校园交互服务与信息展示中枢</div>
+                    <div className={'text-base leading-loose indent-8'}>南浔校区总占地面积约1271亩（其中建筑用地面积1000亩，水域面积271亩），总建筑面积约43.3万平方米，地下建筑面积2.5万平方米，总投资25亿元；全校采用横竖科技提供的各类交互展示设备700余套、交互应用近20款，为新校区打造了一个“服务随处、智慧随行、场景随需、信息随时”的智慧校园交互服务与信息展示中枢</div>
                     <div className={'font-bold'}>案例特点：</div>
                     <div className={'text-base leading-loose indent-8'}>方案创新：全国首个集全校各类交互应用、内容、设备统一规划建设落地的高校。真正做到应用、内容灵活赋能，智慧校园“一扇窗”。</div>
                     <div className={'text-base leading-loose indent-8'}>应用灵活丰富：目前在校园各视窗上运用应用近二十款，发布模版十五款发布模版；应用内容随需发布提升学校业务管理质量：校园部门运行数据：无—有—准—精；数据一目了然、随处可见。软硬件复用：多应用赋能硬件、一屏多用、节省投资；应用、内容、设备管理平台统一复用；统一管理、学校运维成本低。</div>
