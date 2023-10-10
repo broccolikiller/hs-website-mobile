@@ -105,7 +105,7 @@ export const ClassicCaseDetail = () => {
                     <div className={'text-base leading-loose indent-8'}>南浔校区总占地面积约1271亩（其中建筑用地面积1000亩，水域面积271亩），总建筑面积约43.3万平方米，地下建筑面积2.5万平方米，总投资25亿元；全校采用横竖科技提供的各类交互展示设备700余套、交互应用近20款，为新校区打造了一个“服务随处、智慧随行、场景随需、信息随时”的智慧校园交互服务与信息展示中枢</div>
                     <div className={'font-bold'}>案例特点：</div>
                     <div className={'text-base leading-loose indent-8'}>方案创新：全国首个集全校各类交互应用、内容、设备统一规划建设落地的高校。真正做到应用、内容灵活赋能，智慧校园“一扇窗”。</div>
-                    <div className={'text-base leading-loose indent-8'}>应用灵活丰富：目前在校园各视窗上运用应用近二十款，发布模版十五款发布模版；应用内容随需发布提升学校业务管理质量：校园部门运行数据：无—有—准—精；数据一目了然、随处可见。软硬件复用：多应用赋能硬件、一屏多用、节省投资；应用、内容、设备管理平台统一复用；统一管理、学校运维成本低。</div>
+                    <div className={'text-base leading-loose indent-8'}>应用灵活丰富：目前在校园各视窗上运用应用近二十款，发布模版十五款；应用内容随需发布提升学校业务管理质量：校园部门运行数据：无—有—准—精；数据一目了然、随处可见。软硬件复用：多应用赋能硬件、一屏多用、节省投资；应用、内容、设备管理平台统一复用；统一管理、学校运维成本低。</div>
                     <div className={'flex justify-center mt-3'}>
                         <img src="/src/assets/classicCase/classicCaseDetail/classic-case-detail7.png" alt=""/>
                     </div>

@@ -11,6 +11,9 @@ import p10 from '../../assets/production/production10.png'
 import p11 from '../../assets/production/production11.png'
 import p12 from '../../assets/production/production12.png'
 import p13 from '../../assets/production/production13.png'
+import p14 from '../../assets/production/production14.png'
+import p15 from '../../assets/production/production15.png'
+import p16 from '../../assets/production/production16.png'
 
 
 export const AllProductionList = [
@@ -96,18 +99,18 @@ export const AllProductionList = [
         id: 14,
         title: '智慧互动图书馆管理平台',
         des: '含融合互动展示子系统、图书馆大数据墙管理子系统、新书瀑布流管理子系统、图书馆深度感知管理子系统、空间与座位预约签到管理系统、新闻聚合管理子系统。',
-        img: p13
+        img: p14
     },
     {
         id: 15,
         title: '室内定位导航系统',
         des: '具备对人、物在场馆内的室内定位与AR可视化导航；与慧眼书籍定位识别系统联动，可实现书籍精准可视化查询导航。',
-        img: p13
+        img: p15
     },
     {
         id: 16,
         title: '虚拟3D场馆',
         des: '数据孪生虚拟场馆、虚拟图书馆；实现空间、场馆、书架及书籍实时状态的虚拟可视化。',
-        img: p13
+        img: p16
     },
 ]
