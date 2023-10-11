@@ -2,6 +2,7 @@ import '../../index.css'
 import {Collapse} from "antd-mobile";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import policeLogo from '../../assets/footer/bottom-police-logo.png'
 
 export const Footer = () => {
     const [activeKey, setActiveKey] = useState(null)
@@ -13,6 +14,10 @@ export const Footer = () => {
             navigate(route.path)
         }
         setActiveKey(null)
+    }
+    const goHome = () => {
+        let tag = Date.now()
+        navigate(`/home?tag=${tag}`)
     }
     const handleChange = key => setActiveKey(key)
     return (
@@ -81,6 +86,11 @@ export const Footer = () => {
                                 className={'py-4 text-slate-100 item-border'}>
                                 文化行业
                             </div>
+                            <div
+                                onClick={goHome}
+                                className={'py-4 text-slate-100 item-border'}>
+                                经典客户名单
+                            </div>
                         </Collapse.Panel>
                     </Collapse>
                     <div className={'mt-4 footer-title text-center'}>
@@ -89,7 +99,7 @@ export const Footer = () => {
                     <div className={'mt-2 text-center'}>
                         <span>备案号: 浙ICP备17018287号-1</span>
                         <img style={{verticalAlign: "text-top"}} className={'inline px-1'}
-                             src="/src/assets/footer/bottom-police-logo.png" alt=""/>
+                             src={policeLogo} alt=""/>
                         <span style={{wordBreak: "break-all"}}>浙公网安备3010802011030号</span>
                     </div>
                 </div>

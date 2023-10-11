@@ -24,16 +24,36 @@ import classicCaseItem7 from '../../assets/home/classic-case-item7.png'
 import classicCaseItem8 from '../../assets/home/classic-case-item8.png'
 import classicCaseItem9 from '../../assets/home/classic-case-item9.png'
 import classicCaseItem10 from '../../assets/home/classic-case-item10.png'
+import client from '../../assets/home/client.png'
 import style from './index.module.css'
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import {useTabIndexStore} from "../../store/index.jsx";
 
 const solutionItems = [solutionItem1, solutionItem2, solutionItem3, solutionItem4]
 export const Home = () => {
+    const [params, setParams] = useSearchParams()
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (params.get('tag')) {
+            goAnchor('#classic-client-list')
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [params])
+    useEffect(() => {
+        if (params.has('tag')) {
+            goAnchor('#classic-client-list')
+        } else {
+            window.scrollTo(0, 0);
+        }
     }, []);
+    const goAnchor = (id) => {
+        let el = document.querySelector(id);
+        // chrome
+        document.body.scrollTop = el.offsetTop;
+        // firefox
+        document.documentElement.scrollTop = el.offsetTop;
+    }
     const [solutionTitleList, setSolutionTitleList] = useState([
         {
             id: 0,
@@ -216,7 +236,8 @@ export const Home = () => {
                             <div className={'flex mt-1.5'}>
                                 {/*left*/}
                                 <div className={'flex-1'}>
-                                    <div onClick={() => skipClassicCase(2)} className={'mb-1.5  h-[182px] overflow-hidden'}>
+                                    <div onClick={() => skipClassicCase(2)}
+                                         className={'mb-1.5  h-[182px] overflow-hidden'}>
                                         <img src={classicCaseItem2} alt=""/>
                                     </div>
                                     <div onClick={() => skipClassicCase(3)} className={'h-[115px] overflow-hidden'}>
@@ -227,10 +248,12 @@ export const Home = () => {
                                 <div className={'h-full w-1.5 bg-amber-600'}></div>
                                 {/*right*/}
                                 <div className={'flex-1'}>
-                                    <div onClick={() => skipClassicCase(4)} className={'mb-1.5 h-[88px] overflow-hidden'}>
+                                    <div onClick={() => skipClassicCase(4)}
+                                         className={'mb-1.5 h-[88px] overflow-hidden'}>
                                         <img src={classicCaseItem4} alt=""/>
                                     </div>
-                                    <div onClick={() => skipClassicCase(5)} className={'mb-1.5 h-[88px] overflow-hidden'}>
+                                    <div onClick={() => skipClassicCase(5)}
+                                         className={'mb-1.5 h-[88px] overflow-hidden'}>
                                         <img src={classicCaseItem5} alt=""/>
                                     </div>
                                     <div onClick={() => skipClassicCase(6)} className={'h-[115px] overflow-hidden'}>
@@ -240,12 +263,12 @@ export const Home = () => {
 
                             </div>
                         </div>
-                    
+
                 }
             </div>
             {/*客户名单*/}
-            <div className={'mb-4 flex justify-center'}>
-                <img src="/src/assets/home/client.png" alt=""/>
+            <div id="classic-client-list" className={'mb-4 flex justify-center'}>
+                <img src={client} alt=""/>
             </div>
         </>
     );

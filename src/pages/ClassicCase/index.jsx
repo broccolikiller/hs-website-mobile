@@ -3,6 +3,16 @@ import {useEffect, useState} from "react";
 import {Tabs} from "antd-mobile";
 import './index.css'
 import {useTabIndexStore} from "../../store/index.jsx";
+import education1 from '../../assets/classicCase/education-1.png'
+import education2 from '../../assets/classicCase/education-2.png'
+import education3 from '../../assets/classicCase/education-3.png'
+import education4 from '../../assets/classicCase/education-4.png'
+import culture1 from '../../assets/classicCase/culture-1.png'
+import culture2 from '../../assets/classicCase/culture-2.png'
+import culture3 from '../../assets/classicCase/culture-3.png'
+import culture4 from '../../assets/classicCase/culture-4.png'
+import culture5 from '../../assets/classicCase/culture-5.png'
+import culture6 from '../../assets/classicCase/culture-6.png'
 
 export const ClassicCase = () => {
     useEffect(() => {
@@ -10,9 +20,7 @@ export const ClassicCase = () => {
     }, []);
     const [params, setParams] = useSearchParams()
     const navigate = useNavigate()
-    //const [activeKey, setActiveKey] = useState('1')
     useEffect(() => {
-        //setActiveKey(params.get('id') || '1')
         changeClassicCaseTabIndex(params.get('id') || '1')
     }, [params])
 
@@ -34,7 +42,7 @@ export const ClassicCase = () => {
                         <Tabs.Tab title="教育行业" key="1">
                             <div onClick={() => skipClassicCase(7)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-1.png" alt=""/>
+                                <img className={'w-2/5'} src={education1} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>浙江水利水电学院南浔新校区</div>
                                     <div className={'text-sm line-clamp-3 indent-7'}>南浔校区总占地面积约1271亩
@@ -44,7 +52,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(8)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-2.png" alt=""/>
+                                <img className={'w-2/5'} src={education2} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>中国科学技术大学高新校区</div>
                                     <div
@@ -55,7 +63,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(9)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-3.png" alt=""/>
+                                <img className={'w-2/5'} src={education3} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>浙江音乐学院新校区</div>
                                     <div
@@ -65,7 +73,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(10)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-4.png" alt=""/>
+                                <img className={'w-2/5'} src={education4} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>上海财经大学</div>
                                     <div
@@ -77,7 +85,7 @@ export const ClassicCase = () => {
                         <Tabs.Tab title="文化行业" key="2">
                             <div onClick={() => skipClassicCase(1)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-1.png" alt=""/>
+                                <img className={'w-2/5'} src={culture1} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>浙江省之江文化中心</div>
                                     <div className={'text-sm line-clamp-3 indent-7'}>
@@ -87,7 +95,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(2)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-2.png" alt=""/>
+                                <img className={'w-2/5'} src={culture2} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold '}>国家版本馆杭州分馆</div>
                                     <div></div>
@@ -95,7 +103,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(6)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-3.png" alt=""/>
+                                <img className={'w-2/5'} src={culture3} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>杭州市图书馆</div>
                                     <div
@@ -105,7 +113,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(4)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-4.png" alt=""/>
+                                <img className={'w-2/5'} src={culture4} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>衢州文化中心</div>
                                     <div
@@ -116,7 +124,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(3)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-5.png" alt=""/>
+                                <img className={'w-2/5'} src={culture5} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>苏州市第二图书馆</div>
                                     <div
@@ -126,7 +134,7 @@ export const ClassicCase = () => {
                             </div>
                             <div onClick={() => skipClassicCase(5)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/culture-6.png" alt=""/>
+                                <img className={'w-2/5'} src={culture6} alt=""/>
                                 <div className={'pl-2'}>
                                     <div className={'font-bold'}>宁波市图书馆新馆</div>
                                     <div

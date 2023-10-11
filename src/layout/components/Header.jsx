@@ -6,6 +6,7 @@ import '../../index.css'
 import {useNavigate} from "react-router-dom";
 
 export const Header = () => {
+
     const navigate = useNavigate()
     const handlePanel = (route) => {
         if (Object.keys(route.query).length > 0) {
@@ -13,6 +14,11 @@ export const Header = () => {
         } else {
             navigate(route.path)
         }
+        document.querySelector('.btn').click()
+    }
+    const goHome = () => {
+        let tag = Date.now()
+        navigate(`/home?tag=${tag}`)
         document.querySelector('.btn').click()
     }
     return (
@@ -109,6 +115,11 @@ export const Header = () => {
                                                 onClick={() => handlePanel({path: '/classic-case', query: {id: 2}})}
                                                 className={'py-4 text-slate-100 item-border'}>
                                                 文化行业
+                                            </div>
+                                            <div
+                                                onClick={goHome}
+                                                className={'py-4 text-slate-100 item-border'}>
+                                                经典客户名单
                                             </div>
                                         </Collapse.Panel>
                                     </Collapse>
