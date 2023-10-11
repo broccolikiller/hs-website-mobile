@@ -31,7 +31,50 @@ export const ClassicCase = () => {
                         //setActiveKey(item)
                         changeClassicCaseTabIndex(item)
                     }} activeKey={classicCaseTabIndex} defaultActiveKey='1'>
-                        <Tabs.Tab title="文化行业" key="1">
+                        <Tabs.Tab title="教育行业" key="1">
+                            <div onClick={() => skipClassicCase(7)}
+                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
+                                <img className={'w-2/5'} src="/src/assets/classicCase/education-1.png" alt=""/>
+                                <div className={'pl-2'}>
+                                    <div className={'font-bold'}>浙江水利水电学院南浔新校区</div>
+                                    <div className={'text-sm line-clamp-3 indent-7'}>南浔校区总占地面积约1271亩
+                                        (其中建筑用地面积1000亩，水域面积271亩) ，总建筑面积约43.3万平方米，地下建筑......
+                                    </div>
+                                </div>
+                            </div>
+                            <div onClick={() => skipClassicCase(8)}
+                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
+                                <img className={'w-2/5'} src="/src/assets/classicCase/education-2.png" alt=""/>
+                                <div className={'pl-2'}>
+                                    <div className={'font-bold'}>中国科学技术大学高新校区</div>
+                                    <div
+                                        className={'text-sm line-clamp-3 indent-7'}>中国科学技术大学高新校区图书馆是目前国内最先进的高校馆之一，本次新馆建设全馆
+                                        部署了横竖科技智慧互动图书馆
+                                    </div>
+                                </div>
+                            </div>
+                            <div onClick={() => skipClassicCase(9)}
+                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
+                                <img className={'w-2/5'} src="/src/assets/classicCase/education-3.png" alt=""/>
+                                <div className={'pl-2'}>
+                                    <div className={'font-bold'}>浙江音乐学院新校区</div>
+                                    <div
+                                        className={'text-sm line-clamp-3 indent-7'}>浙江音乐学院是教育部于2016年3月1日批准正式成立的公办全日制普通高校，校园环境优美，设施一流，占地面积602
+                                    </div>
+                                </div>
+                            </div>
+                            <div onClick={() => skipClassicCase(10)}
+                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
+                                <img className={'w-2/5'} src="/src/assets/classicCase/education-4.png" alt=""/>
+                                <div className={'pl-2'}>
+                                    <div className={'font-bold'}>上海财经大学</div>
+                                    <div
+                                        className={'text-sm line-clamp-3 indent-7'}>上海财经大学教育部直属的一所以经济管理学科为主，经、管、法、文、理、哲等多学科协调发展的研究型重点大学，国...
+                                    </div>
+                                </div>
+                            </div>
+                        </Tabs.Tab>
+                        <Tabs.Tab title="文化行业" key="2">
                             <div onClick={() => skipClassicCase(1)}
                                  className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
                                 <img className={'w-2/5'} src="/src/assets/classicCase/culture-1.png" alt=""/>
@@ -92,49 +135,7 @@ export const ClassicCase = () => {
                                 </div>
                             </div>
                         </Tabs.Tab>
-                        <Tabs.Tab title="教育行业" key="2">
-                            <div onClick={() => skipClassicCase(7)}
-                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-1.png" alt=""/>
-                                <div className={'pl-2'}>
-                                    <div className={'font-bold'}>浙江水利水电学院南浔新校区</div>
-                                    <div className={'text-sm line-clamp-3 indent-7'}>南浔校区总占地面积约1271亩
-                                        (其中建筑用地面积1000亩，水域面积271亩) ，总建筑面积约43.3万平方米，地下建筑......
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => skipClassicCase(8)}
-                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-2.png" alt=""/>
-                                <div className={'pl-2'}>
-                                    <div className={'font-bold'}>中国科学技术大学高新校区</div>
-                                    <div
-                                        className={'text-sm line-clamp-3 indent-7'}>中国科学技术大学高新校区图书馆是目前国内最先进的高校馆之一，本次新馆建设全馆
-                                        部署了横竖科技智慧互动图书馆
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => skipClassicCase(9)}
-                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-3.png" alt=""/>
-                                <div className={'pl-2'}>
-                                    <div className={'font-bold'}>浙江音乐学院新校区</div>
-                                    <div
-                                        className={'text-sm line-clamp-3 indent-7'}>浙江音乐学院是教育部于2016年3月1日批准正式成立的公办全日制普通高校，校园环境优美，设施一流，占地面积602
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => skipClassicCase(10)}
-                                 className={'rounded shadow-md border flex overflow-hidden h-24 mb-6 p-1'}>
-                                <img className={'w-2/5'} src="/src/assets/classicCase/education-4.png" alt=""/>
-                                <div className={'pl-2'}>
-                                    <div className={'font-bold'}>上海财经大学</div>
-                                    <div
-                                        className={'text-sm line-clamp-3 indent-7'}>上海财经大学教育部直属的一所以经济管理学科为主，经、管、法、文、理、哲等多学科协调发展的研究型重点大学，国...
-                                    </div>
-                                </div>
-                            </div>
-                        </Tabs.Tab>
+                       
                     </Tabs>
                 </div>
             </div>

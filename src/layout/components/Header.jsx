@@ -103,12 +103,12 @@ export const Header = () => {
                                             <div
                                                 onClick={() => handlePanel({path: '/classic-case', query: {id: 1}})}
                                                 className={'py-4 text-slate-100 item-border'}>
-                                                文化行业
+                                                教育行业
                                             </div>
                                             <div
                                                 onClick={() => handlePanel({path: '/classic-case', query: {id: 2}})}
                                                 className={'py-4 text-slate-100 item-border'}>
-                                                教育行业
+                                                文化行业
                                             </div>
                                         </Collapse.Panel>
                                     </Collapse>
