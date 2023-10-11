@@ -50,9 +50,9 @@ export const Home = () => {
     const goAnchor = (id) => {
         let el = document.querySelector(id);
         // chrome
-        document.body.scrollTop = el.offsetTop;
+        document.body.scrollTop = el.offsetTop - 40;
         // firefox
-        document.documentElement.scrollTop = el.offsetTop;
+        document.documentElement.scrollTop = el.offsetTop - 40;
     }
     const [solutionTitleList, setSolutionTitleList] = useState([
         {
